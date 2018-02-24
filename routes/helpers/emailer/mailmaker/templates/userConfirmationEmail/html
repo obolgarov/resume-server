@@ -1,0 +1,10 @@
+<html>
+  <body>
+    <p>
+      Done.
+    </p>
+    <p>
+      Your email: {{userEmail}}
+    </p>
+  </body>
+</html>

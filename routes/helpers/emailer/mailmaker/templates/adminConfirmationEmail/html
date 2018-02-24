@@ -1,0 +1,10 @@
+<html>
+  <body>
+    <p>
+      admin things.
+    </p>
+    <p>
+      proposal id: {{proposalId}}
+    </p>
+  </body>
+</html>
