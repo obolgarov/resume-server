@@ -875,3 +875,5 @@ paket-files/
 # !tools/packages.config
 
 # End of https://www.gitignore.io/api/node,linux,windows,macos,git,angular,python,c++,c,vim,java,emacs,eclipse,visualstudio,visualstudiocode,cmake,compressedarchive
+
+secrets.js
