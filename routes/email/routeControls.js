@@ -59,7 +59,7 @@ module.exports = {
     })
   },
 
-  testConnection (req, res) => {
+  testConnection (req, res) {
     console.log('connection test');
     res.status(200);
     res.json({
