@@ -14,7 +14,7 @@ router.use(getToken);
 router.route('/')
 .post(routeControls.sendEmail);
 
-router.route('/')
+router.route('/test')
 .post(routeControls.testConnection);
 
 // ------------------- END OF ROUTES ---------------------
