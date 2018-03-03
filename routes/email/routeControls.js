@@ -17,7 +17,10 @@ module.exports = {
     path += '&remoteip=' + ip;
 
     console.log('receieved email request');
-    // console.log(path);
+    console.log(path);
+
+    console.log(req.body);
+
     axios.post(path,
     {},
     {
