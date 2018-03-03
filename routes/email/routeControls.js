@@ -25,6 +25,7 @@ module.exports = {
         "Content-Type": "application/x-www-form-urlencoded; charset=utf-8"
       }
     }).then((result) => {
+      console.log('poop');
       if (result.data.success) {
         // valid captcha, proceed with mail
         nodemailer.createTestAccount((err, account) => {
