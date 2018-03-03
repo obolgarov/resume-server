@@ -16,6 +16,7 @@ module.exports = {
     path += '&response=' + req.body.recaptchaChallenge;
     path += '&remoteip=' + ip;
 
+    console.log('receieved email request');
     // console.log(path);
     axios.post(path,
     {},
