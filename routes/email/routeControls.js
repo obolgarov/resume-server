@@ -47,17 +47,25 @@ module.exports = {
             }
           }).sendMail(mailOptions, (error, info) => {
             if (error) {
-              return console.log(error);
+              return Promise.reject(error);
             }
             console.log('sent message');
+            return 'Message sent';
           });
         });
       }
+    }).then((result) => {
+      res.status(200);
+      res.json({
+        success: true
+      });
     }).catch((error) => {
-      // console.log('error');
-      // console.log(error.response);
-
-      // invalid captcha, do nothing
+      // invalid captcha
+      res.status(400);
+      res.json({
+        success: false,
+        error: error
+      });
     })
   },
 
