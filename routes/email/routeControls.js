@@ -16,7 +16,7 @@ module.exports = {
     path += '&response=' + req.body.recaptchaChallenge;
     path += '&remoteip=' + ip;
 
-    console.log(path);
+    // console.log(path);
     axios.post(path,
     {},
     {
@@ -27,6 +27,7 @@ module.exports = {
       if (result.data.success) {
         // valid captcha, proceed with mail
         nodemailer.createTestAccount((err, account) => {
+          console.log(account);
           let mailOptions = {
             from: 'oleksandr.career@bolgarov.org',
             to: 'oleksandr.career@bolgarov.org',
