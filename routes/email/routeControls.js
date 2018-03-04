@@ -27,7 +27,7 @@ module.exports = {
         let mailOptions = {
           from: config.emailAccount,
           to: config.emailAccount,
-          subject: 'Website Message From: ' + req.body.name,
+          subject: 'Resume Website Message From: ' + req.body.name,
           text: 'from: ' + req.body.name + '\nemail: ' + req.body.email + '\nmessage: ' + req.body.message,
           html: '<p>from: ' + req.body.name + '</p><p>email: ' + req.body.email + '</p><p>message: ' + req.body.message +'</p>'
         };
