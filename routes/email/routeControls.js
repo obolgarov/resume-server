@@ -16,11 +16,6 @@ module.exports = {
     path += '&response=' + req.body.recaptchaChallenge;
     path += '&remoteip=' + ip;
 
-    console.log('receieved email request');
-    console.log(path);
-
-    console.log(req.body);
-
     axios.post(path,
     {},
     {
@@ -28,34 +23,28 @@ module.exports = {
         "Content-Type": "application/x-www-form-urlencoded; charset=utf-8"
       }
     }).then((result) => {
-      console.log('poop');
       if (result.data.success) {
-        // valid captcha, proceed with mail
-        nodemailer.createTestAccount((err, account) => {
-          console.log(account);
-          let mailOptions = {
-            from: 'oleksandr.career@bolgarov.org',
-            to: 'oleksandr.career@bolgarov.org',
-            subject: 'Website Message From: ' + req.body.name,
-            text: req.body.name + '\n' + req.body.email + '\n' + req.body.message,
-            html: '<p>' + req.body.name + '</p><p>' + req.body.email + '</p><p>' + req.body.message +'</p>'
-          };
+        let mailOptions = {
+          from: config.emailAccount,
+          to: config.emailAccount,
+          subject: 'Website Message From: ' + req.body.name,
+          text: 'from: ' + req.body.name + '\nemail: ' + req.body.email + '\nmessage: ' + req.body.message,
+          html: '<p>from: ' + req.body.name + '</p><p>email: ' + req.body.email + '</p><p>message: ' + req.body.message +'</p>'
+        };
 
-          nodemailer.createTransport({
-            host: 'smtp.ethereal.email',
-            port: 587,
-            secure: false,
-            auth: {
-              user: account.user,
-              pass: account.pass
-            }
-          }).sendMail(mailOptions, (error, info) => {
-            if (error) {
-              return Promise.reject(error);
-            }
-            console.log('sent message');
-            return 'Message sent';
-          });
+        nodemailer.createTransport({
+          host: config.emailHost,
+          port: config.emailHostPort,
+          secure: config.emailHostSecure,
+          auth: {
+            user: config.emailAccount,
+            pass: config.emailPass
+          }
+        }).sendMail(mailOptions, (error, info) => {
+          if (error) {
+            return Promise.reject(error);
+          }
+          return 'Message sent';
         });
       }
     }).then((result) => {

@@ -6,7 +6,11 @@ let config = {
     httpPort: 8080,
     httpsPort: 8443,
     connstr: 'mongodb://localhost:27017/resume_dev',
-    email: 'oleksandr.career@bolgarov.org',
+    emailHost: 'box5486.bluehost.com',
+    emailHostPort: 465,
+    emailHostSecure: true,
+    emailAccount: 'oleksandr.career@bolgarov.org',
+    emailPass: secrets.emailPass,
     recaptchaSecret: secrets.recaptchaSecret,
     secret: secrets.secret
   },
@@ -15,7 +19,11 @@ let config = {
     httpPort: 8080,
     httpsPort: 8443,
     connstr: 'mongodb://localhost:27017/resume_staging',
-    email: 'oleksandr.career@bolgarov.org',
+    emailHost: 'box5486.bluehost.com',
+    emailHostPort: 465,
+    emailHostSecure: true,
+    emailAccount: 'oleksandr.career@bolgarov.org',
+    emailPass: secrets.emailPass,
     recaptchaSecret: secrets.recaptchaSecret,
     secret: secrets.secret
   },
@@ -24,7 +32,11 @@ let config = {
     httpPort: 8080,
     httpsPort: 8443,
     connstr: 'mongodb://localhost:27017/resume_prod',
-    email: 'oleksandr.career@bolgarov.org',
+    emailHost: 'box5486.bluehost.com',
+    emailHostPort: 465,
+    emailHostSecure: true,
+    emailAccount: 'oleksandr.career@bolgarov.org',
+    emailPass: secrets.emailPass,
     recaptchaSecret: secrets.recaptchaSecret,
     secret: secrets.secret
   }
